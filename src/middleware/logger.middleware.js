@@ -10,8 +10,7 @@ const levels = {
 
 const level = () => {
     const env = process.env.NODE_ENV || 'development';
-    const isDevelopment = env === 'development';
-    return isDevelopment ? 'debug' : 'info';
+    return env === 'development' ? 'debug' : 'info';
 };
 
 const colors = {
@@ -36,14 +35,14 @@ const transports = [
         filename: 'logs/error.log',
         level: 'error',
     }),
-    new winston.transports.File({ filename: 'logs/all.log' }),
+    new winston.transports.File({ filename: 'logs/all.log'}),
 ];
 
-const Logger = winston.createLogger({
+const loggerMiddleware = winston.createLogger({
     level: level(),
     levels,
     format,
     transports,
 });
 
-export default Logger;
+export default loggerMiddleware;

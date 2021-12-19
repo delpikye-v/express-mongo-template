@@ -1,7 +1,11 @@
-import app from './app.js';
-import logger from './utils/logger.js';
-import { PORT } from './utils/config.js';
+import 'dotenv/config';
+import 'module-alias/register.js';
+import App from './app.js'
+import TodoController from './script/todo/todo.controller.js'
 
-app.listen(PORT, () =>
-    logger.info(`Server running in ${process.env.NODE_ENV} on port ${PORT}`),
-);
+const app = new App(
+    [new TodoController()],
+    Number(process.env.PORT)
+)
+
+app.start()

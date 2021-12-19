@@ -1,8 +1,8 @@
 # Express Mongo API
 
-+ Setup a template API
++ Setup a express api (with sample todo).
 
-+ Todo example api with default local mongodb.
++ Local mongodb
 
 ```sh
 using git clone or download zip
